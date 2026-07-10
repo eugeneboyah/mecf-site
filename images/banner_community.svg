@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a3d18"/>
+      <stop offset="100%" stop-color="#2f5e27"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a8d850" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#a8d850" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- Decorative glow blobs -->
+  <circle cx="680" cy="80" r="180" fill="#a8d850" opacity="0.12"/>
+  <circle cx="100" cy="500" r="140" fill="#a8d850" opacity="0.08"/>
+
+  <!-- Decorative rings -->
+  <circle cx="680" cy="80" r="120" stroke="#a8d850" stroke-width="1" fill="none" opacity="0.2"/>
+  <circle cx="680" cy="80" r="160" stroke="#a8d850" stroke-width="1" fill="none" opacity="0.12"/>
+  <circle cx="100" cy="500" r="90" stroke="#a8d850" stroke-width="1" fill="none" opacity="0.15"/>
+
+  <!-- Icon -->
+  <path d="M350 230 Q380 195 400 200 Q420 195 450 230" stroke="#a8d850" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M360 225 Q380 200 400 205 Q420 200 440 225" stroke="#a8d850" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="375" cy="160" r="18" fill="#a8d850" opacity="0.9"/>
+          <circle cx="400" cy="148" r="22" fill="#a8d850"/>
+          <circle cx="425" cy="160" r="18" fill="#a8d850" opacity="0.9"/>
+
+  <!-- Label (eyebrow) -->
+  <text x="400" y="264" font-family="Arial,sans-serif" font-size="13" font-weight="700" 
+        fill="#a8d850" text-anchor="middle" letter-spacing="3">COMMUNITY DEVELOPMENT</text>
+
+  <!-- Divider -->
+  <line x1="320" y1="274" x2="480" y2="274" stroke="#a8d850" stroke-width="2" opacity="0.6"/>
+
+  <!-- Title -->
+  <text x="400" y="312" font-family="Georgia,serif" font-size="34" font-weight="600"
+        fill="white" text-anchor="middle">Building Futures</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="305" font-family="Arial,sans-serif" font-size="18" fill="rgba(220,220,220,0.9)" text-anchor="middle">Homes for people with disabilities</text>
+<text x="400" y="333" font-family="Arial,sans-serif" font-size="18" fill="rgba(220,220,220,0.9)" text-anchor="middle">and direct dignified assistance</text>
+
+
+  <!-- Bottom rule -->
+  <line x1="80" y1="550" x2="720" y2="550" stroke="#a8d850" stroke-width="1" opacity="0.25"/>
+  
+  <!-- Foundation name -->
+  <text x="400" y="572" font-family="Arial,sans-serif" font-size="13" 
+        fill="rgba(255,255,255,0.5)" text-anchor="middle">Mother Evelyn Child-Care Foundation</text>
+</svg>

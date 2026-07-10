@@ -158,15 +158,40 @@ h3, .h3 {
 }
 .topbar .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
 }
+/* Each row spans the full width, side-by-side items */
+.topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.15rem 0;
+}
+.topbar-row--contacts { flex-wrap: nowrap; }
+.topbar-row--location { flex-wrap: nowrap; }
+.topbar-row a,
+.topbar-row span { display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap; }
 .topbar a { opacity: 0.9; }
 .topbar a:hover { opacity: 1; text-decoration: underline; }
+
+/* Desktop: collapse back to single row */
+@media (min-width: 760px) {
+  .topbar .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  /* On desktop, contacts row takes left side, location+social merges to right */
+  .topbar-row { gap: 1.5rem; padding: 0; }
+  .topbar-row--contacts { justify-content: flex-start; }
+  .topbar-row--location { justify-content: flex-end; }
+}
 .topbar-contact { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
 .topbar-contact a, .topbar-contact span { display: inline-flex; align-items: center; gap: 0.45rem; }
 .icon-sm { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; opacity: 0.85; }
@@ -863,9 +888,12 @@ h3, .h3 {
   font-size: 0.82rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+.footer-bottom a { color: var(--green-300); }
+.footer-bottom a:hover { color: var(--white); }
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
