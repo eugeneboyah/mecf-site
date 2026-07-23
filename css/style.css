@@ -154,43 +154,58 @@ h3, .h3 {
 .topbar {
   background: var(--purple-900);
   color: var(--white);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 .topbar .container {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding-top: 0.45rem;
-  padding-bottom: 0.45rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
 }
 /* Each row spans the full width, side-by-side items */
 .topbar-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding: 0.15rem 0;
+  gap: 1.25rem;
+  padding: 0.12rem 0;
 }
-.topbar-row--contacts { flex-wrap: nowrap; }
-.topbar-row--location { flex-wrap: nowrap; }
 .topbar-row a,
-.topbar-row span { display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap; }
+.topbar-row span { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
 .topbar a { opacity: 0.9; }
 .topbar a:hover { opacity: 1; text-decoration: underline; }
 
-/* Desktop: collapse back to single row */
-@media (min-width: 760px) {
+/* Secondary contacts: hidden on phones, shown from tablet up.
+   They remain available in the footer and on the Contact page.
+   Selector must out-specify `.topbar-row a` above. */
+.topbar-row a.tb-sm-hide,
+.topbar-row span.tb-sm-hide { display: none; }
+
+/* The social icons need ~150px; on phones that collides with the
+   street address, so they're hidden here and kept in the footer. */
+.topbar-social { display: none; }
+
+@media (min-width: 620px) {
+  .topbar-row a.tb-sm-hide,
+  .topbar-row span.tb-sm-hide { display: inline-flex; }
+  .topbar-social { display: flex; }
+  .topbar-row { justify-content: flex-start; }
+  .topbar-row--location { justify-content: space-between; }
+}
+
+/* Desktop: collapse the three rows into one */
+@media (min-width: 1000px) {
   .topbar .container {
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0 1.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  /* On desktop, contacts row takes left side, location+social merges to right */
-  .topbar-row { gap: 1.5rem; padding: 0; }
-  .topbar-row--contacts { justify-content: flex-start; }
-  .topbar-row--location { justify-content: flex-end; }
+  .topbar-row { padding: 0; gap: 1.25rem; }
+  .topbar-row--location { margin-left: auto; gap: 1.5rem; }
 }
 .topbar-contact { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
 .topbar-contact a, .topbar-contact span { display: inline-flex; align-items: center; gap: 0.45rem; }
@@ -200,7 +215,7 @@ h3, .h3 {
 .gift-list { display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.93rem; color: var(--ink-soft); }
 .gift-list li { list-style: none; display: flex; align-items: flex-start; gap: 0.7rem; }
 .gift-list .icon-md { color: var(--green-700); margin-top: 0.15rem; }
-.topbar-social { display: flex; gap: 0.85rem; }
+.topbar-social { gap: 0.85rem; }
 .topbar-social a {
   width: 28px; height: 28px;
   border-radius: 50%;
@@ -947,6 +962,27 @@ h3, .h3 {
 .accordion-panel p { padding-bottom: 1.1rem; color: var(--ink-soft); font-size: 0.95rem; }
 
 /* ---------- Team ---------- */
+/* Flex rather than grid so an incomplete final row centres
+   instead of hanging to the left (currently 7 members). */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+.team-grid .team-card {
+  flex: 0 1 calc(25% - var(--space-3));
+  min-width: 180px;
+}
+@media (max-width: 980px) {
+  .team-grid .team-card { flex-basis: calc(33.333% - var(--space-3)); }
+}
+@media (max-width: 700px) {
+  .team-grid .team-card { flex-basis: calc(50% - var(--space-3)); }
+}
+@media (max-width: 420px) {
+  .team-grid .team-card { flex-basis: 100%; }
+}
 .team-card { text-align: center; }
 .team-card .ph { aspect-ratio: 1/1; border-radius: 50%; max-width: 160px; margin: 0 auto 1rem; }
 .team-card h3 { font-size: 1.02rem; margin-bottom: 0.15rem; }
