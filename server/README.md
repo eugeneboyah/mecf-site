@@ -100,8 +100,8 @@ Leave it out entirely when Express serves the site itself.
 Gmail publishes a strict DMARC policy. Sending "from" a `@gmail.com` address
 through a third party like Brevo works, but some messages can land in spam.
 
-Once `motherevelynchildcare.org` (or whichever domain you register) is live,
-switch the sender to something like `noreply@motherevelynchildcare.org` and
+Once `motherevelynfoundation.org` (or whichever domain you register) is live,
+switch the sender to something like `noreply@motherevelynfoundation.org` and
 authenticate the domain in Brevo (SPF + DKIM). Deliverability improves sharply.
 Only `SENDER_EMAIL` needs to change — no code edits.
 

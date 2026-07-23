@@ -29,11 +29,11 @@ const BREVO_URL = 'https://api.brevo.com/v3/smtp/email';
 // Verified sender in Brevo (must be confirmed in the Brevo dashboard)
 const SENDER = {
   name: 'Mother Evelyn Child-Care Foundation',
-  email: process.env.SENDER_EMAIL || 'motherevelynchildcare@gmail.com',
+  email: process.env.SENDER_EMAIL || 'noreply@motherevelynchildcare.org',
 };
 
 // Where enquiries land
-const RECIPIENTS = (process.env.RECIPIENT_EMAILS || 'siahkorha@gmail.com')
+const RECIPIENTS = (process.env.RECIPIENT_EMAILS || 'info@motherevelynchildcare.org')
   .split(',')
   .map((e) => e.trim())
   .filter(Boolean)
